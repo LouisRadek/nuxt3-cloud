@@ -3,7 +3,8 @@ import { ThemeDefinition } from 'vuetify'
 const light: ThemeDefinition = {
   dark: false,
   colors: {
-    primary: '#007f57'
+    primary: '#1E88E5',
+    secondary: '#3fa5ff'
   }
 }
 
