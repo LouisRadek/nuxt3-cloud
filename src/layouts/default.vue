@@ -51,54 +51,64 @@
       <VAppBarNavIcon 
         icon="mdi-brightness-6"
         @click="toggleTheme" 
-        />
+      />
         
-        <VAppBarNavIcon 
-        icon="mdi-logout"
+      <VAppBarNavIcon icon="mdi-logout" />
+    </VAppBar>
+
+    <VNavigationDrawer
+      v-model="isHamburgerBarExpanded"
+      app
+    >
+      <VList nav>
+        <VListItem 
+          prepend-icon="mdi-clock-time-five-outline"
+          title="Recently open files"
         />
-      </VAppBar>
 
-      <VNavigationDrawer
-        v-model="isHamburgerBarExpanded"
-      >
-        <VList nav>
-          <VListItem 
-            prepend-icon="mdi-clock-time-five-outline"
-            title="Recently open files"
+        <VListItem 
+          prepend-icon="mdi-trash-can-outline"
+          title="Trashbin"
+        />
+
+        <VListItem 
+          prepend-icon="mdi-cloud-outline"
+          title="Storage"
+        />
+
+        <VListItem >
+          <VProgressLinear 
+            :model-value="stillAvailableStorage"
+            background-color="secondary lighten-3"
+            color="secondary lighten-1"
           />
 
-          <VListItem 
-            prepend-icon="mdi-trash-can-outline"
-            title="Trashbin"
-          />
-          
-          <VListItem prepend-icon="" />
+          <VListItem>
+            {{ `${usedStorage} GB of 15 GB used` }}
+          </VListItem>
+        </VListItem>        
+      </VList>
+    </VNavigationDrawer>
 
-          <VListItem 
-            prepend-icon="mdi-cloud-outline"
-            title="Storage"
-          />
-
-          <VListItem >
-            <VProgressLinear 
-              :model-value="stillAvailableStorage"
-              background-color="secondary lighten-3"
-              color="secondary lighten-1"
-            />
-
-            <VListItem>
-              {{ `${usedStorage} GB of 15 GB used` }}
-            </VListItem>
-          </VListItem>        
-        </VList>
-      </VNavigationDrawer>
-
+    <VMain>
       <slot />
+      <VBtn
+        class="AddNewFileBtn"
+        color="primary"
+        size="large"
+        icon="mdi-plus-thick"
+        rounded
+      >
+        
+      </VBtn>
+    </VMain>
   </VApp>
 </template>
 
 <style scoped>
-.SearchField :deep(.v-field) {
-  border-radius: 20px !important
-}
+  .AddNewFileBtn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+  }
 </style>
