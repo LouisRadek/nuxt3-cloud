@@ -79,7 +79,7 @@
           </VRow>
       
           <VRow justify="center">
-            <VCol cols="10 md-7">
+            <VCol cols="10">
               <VTextField
                 v-model="password"
                 :append-inner-icon="isPasswordVisible ? 'mdi-eye' : 'mdi-eye-off'"
@@ -101,7 +101,7 @@
           </VRow>
       
           <VRow justify="center">
-            <VCol cols="10 md-7">
+            <VCol cols="10">
               <VSwitch
                 v-model="isStayLoggedInActive"
                 color="secondary"
@@ -113,7 +113,7 @@
           </VRow>
       
           <VRow justify="center">
-            <VCol cols="10 md-7">
+            <VCol cols="10">
               <VBtn
                 variant="flat" 
                 size="large"
