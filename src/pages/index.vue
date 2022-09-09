@@ -54,9 +54,7 @@
         align-center
       "
     >
-      <VCard
-        width="400"
-      >
+      <VCard width="400">
         <VForm
           v-model="isFormValid"
           class="pa-4"
@@ -106,8 +104,8 @@
                 v-model="isStayLoggedInActive"
                 color="secondary"
                 density="compact"
-                size="large"
                 label="stay logged in"
+                size="large"
               />
             </VCol>
           </VRow>
@@ -115,10 +113,10 @@
           <VRow justify="center">
             <VCol cols="10">
               <VBtn
-                variant="flat" 
-                size="large"
-                color="primary"
                 class="w-100"
+                color="primary"
+                size="large"
+                variant="flat"
                 @click="onSubmit"
               >
                 Login
@@ -128,6 +126,5 @@
         </VForm>
       </VCard>
     </VContainer>
-
   </div>
 </template>
