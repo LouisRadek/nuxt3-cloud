@@ -5,22 +5,27 @@
         isDarkThemeActive: true,
         isSearchBarExpanded: false,
         isHamburgerBarExpanded: false,
+        isInputFileVisible: false,
         stillAvailableStorage: '50',
         usedStorage: '7.5'
       }
     },
 
     methods: {
-      toggleTheme() {
+      toggleTheme () {
         this.isDarkThemeActive = !this.isDarkThemeActive  
       },
 
-      toggleExpandSearchBar() {
+      toggleExpandSearchBar () {
         this.isSearchBarExpanded = !this.isSearchBarExpanded
       },
 
-      toggleExpandHamburgerBar() {
+      toggleExpandHamburgerBar () {
         this.isHamburgerBarExpanded = !this.isHamburgerBarExpanded
+      },
+
+      toggleFileInputVisible () {
+        this.isInputFileVisible = !this.isInputFileVisible 
       }
     }
   }
@@ -38,11 +43,11 @@
       
       <VSlideXTransition>
         <VTextField 
-        v-if="isSearchBarExpanded"
-        class="SearchField mb-n5"
-        density="compact"
-        placeholder="search files"
-        variant="outlined"
+          v-if="isSearchBarExpanded"
+          class="SearchField mb-n5"
+          density="compact"
+          placeholder="search files"
+          variant="outlined"
         />
       </VSlideXTransition>
       
@@ -92,15 +97,35 @@
 
     <VMain>
       <slot />
+
       <VBtn
+        v-model="isInputFileVisible"
         class="AddNewFileBtn"
         color="primary"
         size="large"
         icon="mdi-plus-thick"
         rounded
-      >
-        
-      </VBtn>
+        @click="toggleFileInputVisible"  
+      />
+
+      <VSlideXReverseTransition>
+        <VCard 
+          v-if="isInputFileVisible"
+          rounded
+          width="400"
+          variant="flat"
+          class="AddNewFileInput"
+        > 
+          <VFileInput 
+            counter
+            class="mr-3 ma-1"
+            clearable
+            label="Select files"
+            multiple
+            variant="underlined"
+          />
+        </VCard>
+      </VSlideXReverseTransition>
     </VMain>
   </VApp>
 </template>
@@ -110,5 +135,11 @@
     position: fixed;
     right: 20px;
     bottom: 20px;
+  }
+
+  .AddNewFileInput {
+    position: fixed;
+    right: 100px;
+    bottom: 15px;
   }
 </style>
