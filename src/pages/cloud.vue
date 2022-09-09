@@ -10,14 +10,49 @@
         files: [
           {
             id: '1',
-            name: 'folder 1',
+            name: 'folderofUserblalal',
             type: 'folder'
           },
           {
             id: '2',
             name: 'file 1',
             type: 'file'
-          }
+          },
+          {
+            id: '3',
+            name: 'file 1',
+            type: 'file'
+          },
+          {
+            id: '4',
+            name: 'file 1',
+            type: 'file'
+          },
+          {
+            id: '5',
+            name: 'file 1',
+            type: 'file'
+          },
+          {
+            id: '6',
+            name: 'file 1',
+            type: 'file'
+          },
+          {
+            id: '7',
+            name: 'file 1',
+            type: 'file'
+          },
+          {
+            id: '8',
+            name: 'file 1',
+            type: 'file'
+          },
+          {
+            id: '9',
+            name: 'file 1',
+            type: 'file'
+          },
         ]
       }
     },

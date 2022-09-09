@@ -109,22 +109,26 @@
       />
 
       <VSlideXReverseTransition>
-        <VCard 
+        <div
           v-if="isInputFileVisible"
-          rounded
-          width="400"
-          variant="flat"
           class="AddNewFileInput"
-        > 
-          <VFileInput 
-            counter
-            class="mr-3 ma-1"
-            clearable
-            label="Select files"
-            multiple
-            variant="underlined"
-          />
-        </VCard>
+        >
+          <VCard
+            rounded
+            width="400"
+            max-width="60vw"
+            variant="flat"
+          > 
+            <VFileInput 
+              counter
+              class="mr-3 ma-1"
+              clearable
+              label="Select files"
+              multiple
+              variant="underlined"
+            />
+          </VCard>
+        </div>
       </VSlideXReverseTransition>
     </VMain>
   </VApp>
@@ -140,6 +144,6 @@
   .AddNewFileInput {
     position: fixed;
     right: 100px;
-    bottom: 15px;
+    bottom: 10px;
   }
 </style>
