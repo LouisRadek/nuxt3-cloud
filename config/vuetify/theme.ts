@@ -1,5 +1,12 @@
 import { ThemeDefinition } from 'vuetify'
 
+const dark: ThemeDefinition = {
+  dark: true,
+  colors: {
+    primary: '#7d2fc6'
+  }
+}
+
 const light: ThemeDefinition = {
   dark: false,
   colors: {
@@ -9,7 +16,10 @@ const light: ThemeDefinition = {
 }
 
 export default {
+  defaultTheme: 'dark',
+
   themes: {
+    dark,
     light
   }
 }

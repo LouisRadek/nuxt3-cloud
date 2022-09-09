@@ -1,79 +1,8 @@
-<template>
-  <VCard
-    class="mx-auto"
-    max-width="400"
-  >
-    <VForm
-      v-model="isFormValid"
-      class="pa-4"
-    >
-        <VRow justify="center">
-          <VCol cols="7">
-            <VTextField
-              v-model="username"
-              :rules="[
-                $options.rules.invalidChars,
-                $options.rules.required, 
-                $options.rules.min
-              ]"
-              counter
-              density="comfortable"
-              label="Username"
-              variant="underlined"
-            />
-          </VCol>
-        </VRow>
-    
-        <VRow justify="center">
-          <VCol cols="7">
-            <VTextField
-              v-model="password"
-              :append-inner-icon="isPasswordVisible ? 'mdi-eye' : 'mdi-eye-off'"
-              :rules="[
-                $options.rules.invalidChars,
-                $options.rules.required, 
-                $options.rules.min
-              ]"
-              :type="isPasswordVisible ? 'text' : 'password'"
-              counter
-              density="comfortable"
-              label="Password"
-              variant="underlined"
-              @click:append-inner="isPasswordVisible = !isPasswordVisible"
-            />
-
-            <input type="hidden" v-model="honeyPot">
-          </VCol>
-        </VRow>
-    
-        <VRow justify="center">
-          <VCol cols="7">
-            <VSwitch
-              v-model="isStayLoggedInActive"
-              color="secondary"
-              density="compact"
-              label="stay logged in"
-            />
-          </VCol>
-        </VRow>
-    
-        <VRow justify="center">
-          <VCol cols="7">
-            <VBtn
-              variant="flat" 
-              color="primary"
-              class="w-100"
-              @click="onSubmit"
-            >
-              Login
-            </VBtn>
-          </VCol>
-        </VRow>
-    </VForm>
-  </VCard>
-</template>
-
 <script>
+  definePageMeta({
+    layout: 'blank'
+  })
+
   export default {
     name: 'IndexPage',
 
@@ -87,7 +16,7 @@
         isStayLoggedInActive: false
       }
     },
-    
+
     rules: {
       required: input => !!input || 'Required',
 
@@ -113,3 +42,89 @@
     }
   }
 </script>
+
+<template>
+  <div class="h-100 ">
+    <VContainer 
+      class="
+        h-100 
+        d-flex 
+        flex-column 
+        justify-center 
+        align-center
+      "
+    >
+      <VCard width="400">
+        <VForm
+          v-model="isFormValid"
+          class="pa-4"
+        >
+          <VRow justify="center">
+            <VCol cols="10">
+              <VTextField
+                v-model="username"
+                :rules="[
+                  $options.rules.invalidChars,
+                  $options.rules.required, 
+                  $options.rules.min
+                ]"
+                counter
+                density="comfortable"
+                label="Username"
+                variant="underlined"
+              />
+            </VCol>
+          </VRow>
+      
+          <VRow justify="center">
+            <VCol cols="10">
+              <VTextField
+                v-model="password"
+                :append-inner-icon="isPasswordVisible ? 'mdi-eye' : 'mdi-eye-off'"
+                :rules="[
+                  $options.rules.invalidChars,
+                  $options.rules.required, 
+                  $options.rules.min
+                ]"
+                :type="isPasswordVisible ? 'text' : 'password'"
+                counter
+                density="comfortable"
+                label="Password"
+                variant="underlined"
+                @click:append-inner="isPasswordVisible = !isPasswordVisible"
+              />
+    
+              <input type="hidden" v-model="honeyPot">
+            </VCol>
+          </VRow>
+      
+          <VRow justify="center">
+            <VCol cols="10">
+              <VSwitch
+                v-model="isStayLoggedInActive"
+                color="secondary"
+                density="compact"
+                label="stay logged in"
+                size="large"
+              />
+            </VCol>
+          </VRow>
+      
+          <VRow justify="center">
+            <VCol cols="10">
+              <VBtn
+                class="w-100"
+                color="primary"
+                size="large"
+                variant="flat"
+                @click="onSubmit"
+              >
+                Login
+              </VBtn>
+            </VCol>
+          </VRow>
+        </VForm>
+      </VCard>
+    </VContainer>
+  </div>
+</template>
