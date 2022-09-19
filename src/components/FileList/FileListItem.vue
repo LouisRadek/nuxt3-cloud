@@ -14,17 +14,7 @@ export default{
     }
   },
 
-  data () {
-    return {
-      isContextBarVisible: false
-    }
-  },
-
   methods: {
-    toggleContextBar () {
-      this.isContextBarVisible = !this.isContextBarVisible
-    },  
-
     onClickDelete () {
       this.$emit('delete')
     },
