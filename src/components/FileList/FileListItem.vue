@@ -27,7 +27,20 @@ export default{
 
     onClickDelete () {
       this.$emit('delete')
+    },
+
+    onClickDownload () {
+      this.$emit('download')
+    },
+
+    onClickRename () {
+      this.$emit('rename')
+    },
+
+    onClickMove () {
+      this.$emit('move')
     }
+
   }
 }
 </script>
@@ -53,13 +66,54 @@ export default{
       </div>
 
       <div class="File-fileActions">
-        <VIcon
-          color="tertiary"
-          size="23px"
-          @click="toggleContextBar"
+        <VBtn
+          rounded
+          size="25px"
+          variant="text"
         >
-          mdi-dots-vertical
-        </VIcon>
+          <VIcon 
+            color="grey"
+            size="24px"
+          >
+            mdi-dots-vertical
+          </VIcon>
+
+          <VMenu 
+            activator="parent" 
+            location="end"
+          > 
+            <VList> 
+              <VList-item 
+                prepend-icon="mdi-trash-can-outline"
+                @click="onClickDelete"                
+              >
+                Delete
+              </VList-item>
+
+              <VList-item 
+                prepend-icon="mdi-download"
+                @click="onClickDownload"
+              >
+                Download
+              </VList-item>
+
+              <VList-item 
+                prepend-icon="mdi-rename-box"
+                @click="onClickRename"
+              >
+                Rename
+              </VList-item>
+
+              <VList-item 
+                prepend-icon="mdi-folder-arrow-right"
+                @click="onClickMove"
+              >
+                Move
+              </VList-item>
+            </VList>
+          </VMenu>
+        </VBtn>
+
       </div>
     </div>
   </VSheet>
